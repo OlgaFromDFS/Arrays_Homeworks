@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta content="text/html; charset=utf-8">
+    <title>palindrome</title>
+</head>
+<body>
+    <script>
+        const word = prompt('Введите предполагаемое слово-палиндром.');
+        const arrayLetters = Array.from(word);
+        let comparisonValues;
+        for (let i = 0; i < arrayLetters.length; i++) {
+		    comparisonValues = arrayLetters[i] === arrayLetters[arrayLetters.length - i - 1];
+            
+            if (comparisonValues === false) {
+                alert('Это слово не палиндром.');
+                break;
+            }
+        }
+
+        if (comparisonValues) {
+            alert('Это слово-палиндром.');
+        }
+    </script>
+</body>
+</html>
+        

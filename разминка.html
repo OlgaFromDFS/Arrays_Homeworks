@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta content="text/html; charset=utf-8">
+    <title>Interrogator</title>
+</head>
+<body>
+    <script>
+    function filterOnce(array, filterValue) {     
+        const result = [];     
+        let filtered = false;
+        for (const value of array) {         
+            if (value === filterValue && !filtered) {             
+                filtered = true;              
+                continue;         
+            }          
+            result.push(value);     
+        }      return result; 
+    }  
+
+    function filterMinMax(numbers) {     
+        let min = Infinity;     
+        let max = -Infinity;      
+        for (const value of numbers) {         
+            if (min > value) {             
+                min = value;         
+            }         
+            if (max < value) {             
+                max = value;         
+            }     
+        }     
+        const step = filterOnce(numbers, min);     
+        const result = filterOnce(step, max);      
+        console.log(result);
+        return min && max; 
+    }
+
+    filterMinMax([1, 2, -1, 9, 100, 10, -1]);
+        
+        
+
+    </script>
+</body>
+</html>
+<!-- const oldArray = [5, 8, 20, 11, 7];
+let newArray;
+const max = Infinity;
+const min = -Infinity;
+
+function filter(argument) {
+    for (const value of oldArray) {
+        if value < max && value > min;
+        newArray = value.map;
+        console.log(newArray);
+    }
+    return 
+}
+
+filter(oldArray);
+
+
+
+
+let number;
+const array = []; // 3, 6, 11, 0, 4
+
+for (i = 0; i < 5; i += 1) {
+    number = +prompt('Введите число');
+    array.push(number);
+}
+
+console.log(array);
+
+
+
+
+
+
+array(numbers)
+
+
+
+
+    const word = +prompt('Введите слово');
+            const arrayLetters = array.from(word);
+
+            const quantity = word.length;
+
+            for (i = 0; i < quantity; i += 1) {
+                
+                arrayLetters[0] = arrayLetters[arrayLetters.length - 1]
+            } -->
