@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta content="text/html; charset=utf-8">
+    <title>Towns</title>
+</head>
+<body>
+    <script>
+        const correctLetters = ['а','б','в','г','д','е','ё','ж','з','и', 'й', 'к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','э','ю','я'];
+        const towns = [];
+        
+        function getFirstLetter() {
+            const index = Math.floor(Math.random() * correctLetters.length);
+            return correctLetters[index];
+        }
+
+        function getLastCorrectLetter(town) {
+            for(let i = -1; i > -town.length; i--) {
+                let currentLetter = town.at(i);
+
+                if(correctLetters.includes(currentLetter)) {
+                    return currentLetter;
+                }
+            }
+        }
+     
+        function theQuestioner() {
+            const lastLetter = towns.length ? getLastCorrectLetter(towns.at(-1)) : getFirstLetter();
+            const answer = prompt(`Введите новое название города, начинающееся на букву ${lastLetter}.`);
+
+            if (answer === '') {
+                alert('Введите город!');
+                theQuestioner();
+                return;
+            }   
+            
+            if (answer === null) {
+                alert('Игра окончена. Отказ от ввода.');
+                return;
+            }
+
+            if (towns.includes(answer)) {
+                alert('Игра окончена. Такой город уже был.');
+                return;
+            }
+
+            if (lastLetter === answer.at(0)) {
+                towns.push(answer.toLowerCase());
+
+                document.body.append(answer);
+                document.body.append(document.createElement('br'));
+
+                setTimeout(() => {
+                    theQuestioner();
+                }, 20);
+
+                return;
+            } else {
+                alert('Игра окончена, вы ввели название города, начинающееся не на последнюю букву предыдущего.');
+            }
+        }
+
+        theQuestioner();
+    </script>
+</body>
+</html>
