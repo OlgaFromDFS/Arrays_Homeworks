@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta content="text/html; charset=utf-8">
+    <title>Brackets</title>
+</head>
+<body>
+    <script>
+        function checkBrackets(string) {
+            const count = 0;
+
+            for (let char of string) {
+                if(char === '(') {
+                    count++;
+                } 
+
+                if(char === ')') {
+                    count--;
+                }
+
+                if(count < 0) {
+                    return false;
+                }
+            }
+
+            return count === 0;
+        }
+
+        checkBrackets('(a(ccc(fg0(v)b)nm)cc');
+    </script>
+</body>
+</html>
+        
